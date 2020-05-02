@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}View Articles{% endblock %}
+
+{% block content %}
+	<h1>Your Articles</h1>
+	{% for art in art_list %}
+		<div class="card mb-3" style="background-color: #ddd;">
+		  <div class="card-body">
+		    <h5 class="card-title" style="color: black;">Fake: {{art.fake}}</h5>
+		    <p class="card-text" style="color: black; overflow: scroll;">{{art.title}}</p>
+		    <a href="#" class="btn btn-primary" style="bottom: 2rem;">Visit article</a>
+		  </div>
+		</div>
+	{% endfor %}
+{% endblock %}

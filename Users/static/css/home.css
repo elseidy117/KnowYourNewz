@@ -1,0 +1,19 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+
+}
+
+#txt{
+	color: rgb(180,180,180);
+	font-size: 240%;
+	word-spacing: 5px;
+	letter-spacing: 2px;
+	margin-bottom: 50px;
+	text-transform: uppercase;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-80%, -50%);
+}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}View Articles{% endblock %}
+
+{% block content %}
+	<h1>Recent Posts on KnowYourNewz</h1>
+	{% for art_lst in list %}
+		<div class="row">
+			{% for art in art_lst %}
+				<!-- <h1 style="color: green;">{{art.link}}</h1> -->
+				<div class="col">
+					<div class="card" style="width: 19rem; height: 19rem; margin-bottom: 2rem; background-color: #ddd;">
+					  <div class="card-body">
+					    <!-- <h5 class="card-title" style="color: black; height: 4rem;">{{art.link}}</h5> -->
+				    	<p class="card-text" style="color: #000; width: 80%; height: 8rem; border-radius: 1rem; padding: 1px; overflow: scroll;">{{art.title}}</p>
+					    <p class="card-text" style="color: black; position: absolute; bottom: 6rem;">User: {{art.user.username}}</p>
+					    <p class="card-text" style="color: black; position: absolute; bottom: 4rem;">Fake: {{art.fake}}</p>
+					    <a href="#" class="btn btn-primary" style="position: absolute; bottom: 2rem;">Visit article</a>
+					  </div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	{% endfor %}
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}HOME{% endblock %}
+
+{% block content %}
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+	<!-- contruct your home page here -->
+	{% if user.is_authenticated %}
+		<div id="txt">
+			<h2>See if you should<br>believe what you read<h2>
+		</div>
+	{% else %}
+		<a href="/login">Login</a>
+	{% endif %}
+{% endblock %}

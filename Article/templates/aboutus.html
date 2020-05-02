@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+	<div style="background-color: transparent; font-size: 17px; overflow: scroll;">
+		<h1 style="color: black;">KnowYourNewz</h1>
+		<h3> - a fake news detector</h3>
+		<br>
+		<div>
+		<div>
+			<h4 style="color: black;"><strong>What is Fake News?</strong></h4>
+			<p>
+				A type of yellow journalism, fake news encapsulates pieces of news that may be hoaxes and is generally spread through social media and other online media. This is often done to further or impose certain ideas and is often achieved with political agendas. Such news items may contain false and/or exaggerated claims, and may end up being viralized by algorithms, and users may end up in a filter bubble.
+			</p>
+		</div>
+		<div>
+			<h4 style="color: black;"><strong>What are we using-</strong></h4>
+			<p>
+				This Project comes up with the applications of NLP (Natural Language Processing) techniques for detecting the 'fake news', that is, misleading news stories that comes from the non-reputable sources. Only by building a model based on a count vectorizer (using word tallies) or a (Term Frequency Inverse Document Frequency) tfidf matrix, (word tallies relative to how often they’re used in other articles in your dataset) can only get you so far. But these models do not consider the important qualities like word ordering and context. It is very possible that two articles that are similar in their word count will be completely different in their meaning.So a proposed work on assembling a dataset of both fake and real news and employ a Naive Bayes classifier in order to create a model to classify an article into fake or real based on its words and phrases.
+			</p>
+		</div>
+		<div>
+			<h4 style="color: black;"><strong>The FrontEnd-</strong></h4>
+			<p>
+				We have proposed a website as our user frontend. A new user will be able to directly post a news as text for verification through our prediction model. The user will then get the prediction results and will be able to rate them for satisfaction and further prediction model correction. A user can also signup which will enable the user to view previous results and get better support and experince. We are further thinking of including a system of trusted user which can be used to further actuate our dataset.
+			</p>
+		</div>
+	</div>
+{% endblock %}

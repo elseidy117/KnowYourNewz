@@ -1,0 +1,11 @@
+#check-form {
+	margin: auto;
+	width: 50%;
+	
+	overflow: scroll;
+}
+
+form-group {
+    margin: 80px;
+    padding: 80px;
+}

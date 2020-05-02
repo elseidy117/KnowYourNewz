@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    {% block static_files %}{% endblock %}
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>{% block title %}KnowYourNewz{% endblock %}</title>
+    <style type="text/css">
+      #body_dum {
+        background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../static/images/base.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+        font-size: 20px;
+        overflow-x: hidden;
+        color: white;
+        font-family: 'Georgia';
+      }
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+
+      }
+    </style>
+  </head>
+  <body>
+    <div id="body_dum">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">{% if user.is_authenticated %}<div style="text-transform: uppercase;">{{user.username}}</div>{% else %}Anonymous{% endif %}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/check">Check Article{% block l2 %}{% endblock %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/posts">Posts{% block l3 %}{% endblock %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/view">History{% block l4 %}{% endblock %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About Us{% block l5 %}{% endblock %}</a>
+            </li>
+          </ul>
+          {% if user.is_authenticated %}
+            <a href="/logout"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button></a>
+          {% else%}
+            <a href="/login"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button></a>
+          {% endif %}
+          
+        </div>
+      </nav>
+    </header>
+    <!-- <h1>Hello!!!</h1> -->
+    <div class="container" id="cnt">
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+    <div style="padding: 50px; width: 100%; background-color: #343a40; color: #179634;">
+      <!-- <h1>Contact Us</h1> -->
+      <div class="row">
+      <div class="col" style="width: 40%">
+      <h2 style="padding: 20px; font-size: 3vw;">Developers:</h2>
+      <ul>
+        <li><h5 style="padding: 3px; overflow: hidden; font-size: 1.5vw;">Keshav Sharma: iit2018130@iiita.ac.in</h5></li>
+        <li><h5 style="padding: 3px; overflow: hidden; font-size: 1.5vw;">Amit Kumar: iit2018131@iiita.ac.in</h5></li>
+        <li><h5 style="padding: 3px; overflow: hidden; font-size: 1.5vw;">Ashutosh Mishra: iit2018133@iiita.ac.in</h5></li>
+        <li><h5 style="padding: 3px; overflow: hidden; font-size: 1.5vw;">Sanchit Jaiswal: iit2018180@iiita.ac.in</h5></li>
+        <li><h5 style="padding: 3px; overflow: hidden; font-size: 1.5vw;">Chinmay Sethi: iit2018182@iiita.ac.in</h5></li>
+        <li><h5 style="padding: 3px; overflow: hidden; font-size: 1.5vw;">Eishaan Singh Rao: iit2018183@iiita.ac.in</h5></li>
+      </ul>
+      </div>
+      <div class="col" style="width: 40%;">
+        <h2 style="padding: 20px; font-size: 3vw; overflow: hidden">Email Us:<br>knowyournewz@gmail.com</h2>
+        <h5 style="font-size: 1.5vw;">We are the students of IIIT Allahabad and sophomores at the time of the development of this website. All of us share a common interest in web technologies and IT related paradigms. We are current pursuing B.Tech(IT) in Indian Institute of Information Technology, Allahabad, Jhalwa, Prayagraj. This project was developed as the final project for the subject Software Engineering (ISOE). Hope you find the project useful. If you have any suggestions/queries, you can mail us at any of the email addresses provided.</h5>
+      </div>
+    </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
