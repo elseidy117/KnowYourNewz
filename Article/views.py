@@ -95,7 +95,7 @@ def checkArticle(request):
 #changes from here!!!!!
 # @login_required
 def viewArticle(request):
-    if request.user.is_authenticated or request.user.is_anonymous:
+    if request.user.is_anonymous:
         return redirect('/login')
     else:
         #changes end here!!!!!!
