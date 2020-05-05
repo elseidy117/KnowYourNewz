@@ -13,7 +13,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+STATIC_DIR=os.path.join(BASE_DIR,"static")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'Article',
     'crispy_forms',
     'Users',
-    'Post'
+    'Post',
+    'requests'
 ]
 
 MIDDLEWARE = [
@@ -124,4 +125,7 @@ STATIC_URL = '/static/'
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/login"
+STATICFILES_DIRS=[
+    STATIC_DIR,
+]

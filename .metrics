@@ -1,0 +1,19 @@
+{
+    "files": {
+        "manage.py": {
+            "block_positions": [
+                {
+                    "end": 21,
+                    "name": "main",
+                    "start": 7,
+                    "type": "Function"
+                }
+            ],
+            "comments": 1,
+            "language": "Python",
+            "mccabe": 1,
+            "ratio_comment_to_code": 0.07,
+            "sloc": 15
+        }
+    }
+}

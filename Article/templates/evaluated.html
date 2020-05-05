@@ -1,8 +1,298 @@
 {% extends "base.html" %}
-
 {% block title %}Evaluated{% endblock %}
 
-
 {% block content %}
-    <h1>{{response.success}}</h1>
+		{% if result.article.fake %}
+		<style>
+		.card {
+			width: 500px;
+			height: 500px;
+			background-color: #fff;
+			background: linear-gradient(#f8f8f8, #fff);
+			box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+			border-radius: 6px;
+			overflow: hidden;
+			position: relative;
+			margin: 1.5rem;
+		  }
+		  
+		  .card h4 {
+			text-align: center;
+			color: black;
+		  }
+		  .card .additional {
+			position: absolute;
+			width: 150px;
+			height: 100%;
+			background: linear-gradient(rgb(92, 207, 88), rgb(105, 202, 105));
+			transition: width 0.4s;
+			overflow: hidden;
+			z-index: 2;
+		  }
+		  
+		  .card:hover .additional {
+			width: 100%;
+			border-radius: 0 5px 5px 0;
+		  }
+		  
+		  .card .additional .user-card {
+			width: 150px;
+			height: 100%;
+			position: relative;
+			float: left;
+		  }
+		  
+		  .card .additional .user-card::after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 10%;
+			right: -2px;
+			height: 80%;
+			border-left: 2px solid rgba(0,0,0,0.025);
+		  }
+		  
+		  .card .additional .user-card .level {
+			top: 25%;
+			color: #fff;
+			text-transform: uppercase;
+			font-size: 0.75em;
+			font-weight: bold;
+			background: rgba(0,0,0,0.15);
+			padding: 0.125rem 0.75rem;
+			border-radius: 100px;
+			white-space: nowrap;
+		  }
+		  
+		  .card .additional .more-info {
+			width: 300px;
+			float: left;
+			position: absolute;
+			left: 150px;
+			height: 100%;
+		  }
+		  
+		  .card .additional .more-info h1 {
+			color: #fff;
+			margin-bottom: 0;
+		  }
+		  
+		  
+		  .card .additional .coords {
+			margin: 0 1rem;
+			color: #fff;
+			font-size: 1rem;
+		  }
+		  
+		  .card .additional .coords span + span {
+			float: right;
+		  }
+		  
+		  .card .additional .stats {
+			font-size: 2rem;
+			display: flex;
+			position: absolute;
+			bottom: 1rem;
+			left: 1rem;
+			right: 1rem;
+			top: auto;
+			color: #fff;
+		  }
+		  
+		  
+		  .card .additional .stats > div {
+			flex: 1;
+			text-align: center;
+		  }
+		  
+		  .card .additional .stats i {
+			display: block;
+		  }
+		  
+		  .card .additional .stats div.title {
+			font-size: 0.75rem;
+			font-weight: bold;
+			text-transform: uppercase;
+		  }
+		  
+		  .card .general {
+			width: 300px;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			right: 0;
+			z-index: 1;
+			box-sizing: border-box;
+			padding: 1rem;
+			padding-top: 0;
+		  }
+		  
+		  .card .general .more {
+			position: absolute;
+			bottom: 1rem;
+			right: 1rem;
+			font-size: 0.9em;
+		  }</style>
+			<div class="card ">
+		  	<div class="additional">
+			<div class="user-card">
+			  <div class="level center">
+				REAL
+			  </div>
+			</div>
+			<div class="more-info">
+			  <h5 style="overflow: hidden; color:#fff;">{{result.article.body}}</h5>
+			</div>
+		  </div>
+		  <div class="general">
+			<h4>{{result.article.title}}</h4>
+		  </div>
+		</div>
+		{% else %}
+		<style>
+			.card {
+				width: 500px;
+				height: 500px;
+				background-color: #fff;
+				background: linear-gradient(#f8f8f8, #fff);
+				box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+				border-radius: 6px;
+				overflow: hidden;
+				position: relative;
+				margin: 1.5rem;
+			  }
+			  
+			  .card h4 {
+				text-align: center;
+				color: black;
+			  }
+			  .card .additional {
+				position: absolute;
+				width: 150px;
+				height: 100%;
+				background: linear-gradien(t#dE685E, #EE786E);
+				transition: width 0.4s;
+				overflow: hidden;
+				z-index: 2;
+			  }
+			  
+			  .card:hover .additional {
+				width: 100%;
+				border-radius: 0 5px 5px 0;
+			  }
+			  
+			  .card .additional .user-card {
+				width: 150px;
+				height: 100%;
+				position: relative;
+				float: left;
+			  }
+			  
+			  .card .additional .user-card::after {
+				content: "";
+				display: block;
+				position: absolute;
+				top: 10%;
+				right: -2px;
+				height: 80%;
+				border-left: 2px solid rgba(0,0,0,0.025);
+			  }
+			  
+			  .card .additional .user-card .level {
+				top: 25%;
+				color: #fff;
+				text-transform: uppercase;
+				font-size: 0.75em;
+				font-weight: bold;
+				background: rgba(0,0,0,0.15);
+				padding: 0.125rem 0.75rem;
+				border-radius: 100px;
+				white-space: nowrap;
+			  }
+			  
+			  .card .additional .more-info {
+				width: 300px;
+				float: left;
+				position: absolute;
+				left: 150px;
+				height: 100%;
+			  }
+			  
+			  .card .additional .more-info h1 {
+				color: #fff;
+				margin-bottom: 0;
+			  }
+			  
+			  
+			  .card .additional .coords {
+				margin: 0 1rem;
+				color: #fff;
+				font-size: 1rem;
+			  }
+			  
+			  .card .additional .coords span + span {
+				float: right;
+			  }
+			  
+			  .card .additional .stats {
+				font-size: 2rem;
+				display: flex;
+				position: absolute;
+				bottom: 1rem;
+				left: 1rem;
+				right: 1rem;
+				top: auto;
+				color: #fff;
+			  }
+			  
+			  
+			  .card .additional .stats > div {
+				flex: 1;
+				text-align: center;
+			  }
+			  
+			  .card .additional .stats i {
+				display: block;
+			  }
+			  
+			  .card .additional .stats div.title {
+				font-size: 0.75rem;
+				font-weight: bold;
+				text-transform: uppercase;
+			  }
+			  
+			  .card .general {
+				width: 300px;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				right: 0;
+				z-index: 1;
+				box-sizing: border-box;
+				padding: 1rem;
+				padding-top: 0;
+			  }
+			  
+			  .card .general .more {
+				position: absolute;
+				bottom: 1rem;
+				right: 1rem;
+				font-size: 0.9em;
+			  }</style>
+				<div class="card ">
+				  <div class="additional">
+				<div class="user-card">
+				  <div class="level center">
+					REAL
+				  </div>
+				</div>
+				<div class="more-info">
+				  <h5 style="overflow: hidden; color:#fff;">{{result.article.body}}</h5>
+				</div>
+			  </div>
+			  <div class="general">
+				<h4>{{result.article.title}}</h4>
+			  </div>
+			</div>
+		{% endif %}
 {% endblock %}
