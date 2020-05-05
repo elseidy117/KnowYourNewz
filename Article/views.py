@@ -49,7 +49,7 @@ def checkArticle(request):
             else:
                 article = Article(title=title, link=link, body=body)
             #yahan tak karna h change
-            article.save()
+            #article.save()
             response = requests.post(url = 'http://localhost:8080/fakebox/check', data = data)
             temp = json.loads(response.text)
             result = {}
@@ -61,23 +61,26 @@ def checkArticle(request):
 
             #res = result(np.array([0.889, 0.908]), u, sigma2)
             res = resultFunc(np.array([temp['content']['score'], temp['title']['score']]), u, var)
-            # print(res)
+            print(f'the result is {res}')
             
 
             if(res > 0.33):
                 article.fake = False
+                print(f'True')
                 result['status'] = 'Real'
                 result['article'] = article
                 result['score'] = temp['title']['score'] + temp['content']['score']
                 result['resp'] = temp
             else:
                 article.fake = True
+                print(f'False')
                 result['status'] = 'Fake'
                 result['article'] = article
                 result['score'] = temp['title']['score'] + temp['content']['score']
                 result['resp'] = temp
             
-            # print(result)
+            print(f"The news is {result['status']}")
+            article.save()
 
             if posted is True:
                 print('posted if was true')

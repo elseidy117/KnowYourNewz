@@ -2,7 +2,7 @@
 {% block title %}Evaluated{% endblock %}
 
 {% block content %}
-		{% if result.article.fake %}
+		{% if not result.article.fake %}
 		<style>
 		.card {
 			width: 500px;
@@ -283,7 +283,7 @@
 				  <div class="additional">
 				<div class="user-card">
 				  <div class="level center">
-					REAL
+					FAKE
 				  </div>
 				</div>
 				<div class="more-info">
